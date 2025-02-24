@@ -65,7 +65,7 @@ def login():
             st.session_state.current_user = user
             st.success(f"Logged in as {username}")
             try:
-                st.experimental_rerun()
+                st.rerun()
             except AttributeError:
                 pass
         else:
@@ -91,7 +91,7 @@ def signup():
             st.success("Account created successfully! Please complete KYC verification.")
             st.session_state.current_user = new_user
             try:
-                st.experimental_rerun()
+                st.rerun()
             except AttributeError:
                 pass
 
@@ -105,7 +105,7 @@ def kyc_verification():
             st.session_state.current_user['kyc_verified'] = True
             st.success("KYC Verification Successful!")
             try:
-                st.experimental_rerun()
+                st.rerun()
             except AttributeError:
                 pass
         else:
@@ -183,7 +183,7 @@ def investor_dashboard():
                         invoice['investor'] = st.session_state.current_user['username']
                         st.success(f"Funded Invoice {invoice['invoice_id']} successfully!")
                         try:
-                            st.experimental_rerun()
+                            st.rerun()
                         except AttributeError:
                             pass
         else:
@@ -277,7 +277,7 @@ def main():
         st.session_state.current_user = None
         st.success("Logged out successfully!")
         try:
-            st.experimental_rerun()
+            st.rerun()
         except AttributeError:
             pass
 
